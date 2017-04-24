@@ -59,7 +59,6 @@ func TestRoper_STDIN(t *testing.T) {
 	//doIt("https://raw.githubusercontent.com/applariat/roper/master/tests/test.yaml", t)
 }
 
-
 func doIt(file string, t *testing.T) {
 
 	var out = new(TestStruct)
