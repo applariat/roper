@@ -38,27 +38,28 @@ func TestRoper_JSON(t *testing.T) {
 	doIt("tests/test.json", t)
 }
 
-// TestRoper_YAMLFile load and test tests/test.yaml
+// TestRoper_YAML load and test tests/test.yaml
 func TestRoper_YAML(t *testing.T) {
 	doIt("tests/test.yaml", t)
 }
 
-// TestRoper_YMLFile load and test tests/test.yml
+// TestRoper_YML load and test tests/test.yml
 func TestRoper_YML(t *testing.T) {
 	doIt("tests/test.yml", t)
 }
 
-// TestRoper_YMLFile load and test tests/test.yml
+// TestRoper_URL load and test from url
 func TestRoper_URL(t *testing.T) {
 	doIt("https://raw.githubusercontent.com/applariat/roper/master/tests/test.yaml", t)
 }
 
-// TestRoper_YMLFile load and test tests/test.yml
+// TestRoper_STDIN load and test from stdin
 func TestRoper_STDIN(t *testing.T) {
 	// TODO:
 	//doIt("https://raw.githubusercontent.com/applariat/roper/master/tests/test.yaml", t)
 }
 
+// Nearly every test function will do the same thing.
 func doIt(file string, t *testing.T) {
 
 	var out = new(TestStruct)

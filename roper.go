@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/BurntSushi/toml"
 	"github.com/ghodss/yaml"
 	"io/ioutil"
 	"net/http"
@@ -40,9 +39,6 @@ func Unmarshal(input string, result interface{}) error {
 
 	case ".json":
 		err = json.Unmarshal(bytes, &result)
-
-	case ".toml":
-		err = toml.Unmarshal(bytes, &result)
 
 	default:
 		err = fmt.Errorf("Unsupported file type: %s", ext)
