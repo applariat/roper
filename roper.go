@@ -30,6 +30,15 @@ func Unmarshal(input string, result interface{}) error {
 		return errors.New("File contained no data")
 	}
 
+	if input == "-" {
+		if yaml.Unmarshal(bytes, &result) != nil {
+			if json.Unmarshal(bytes, &result) != nil {
+				return errors.New("failed to decode from stdin")
+			}
+		}
+		return nil
+	}
+
 	ext := path.Ext(input)
 
 	switch strings.ToLower(ext) {
@@ -58,10 +67,11 @@ func getBytesFromInput(inputFile string) ([]byte, error) {
 			return nil, err
 		}
 
-		if fi.Mode()&os.ModeNamedPipe != 0 {
-			return ioutil.ReadAll(os.Stdin)
+		if fi.Mode()&os.ModeNamedPipe == 0 {
+			return nil, errors.New("Not a stdin pipe")
 		}
-		return nil, errors.New("Unknown STDIN type")
+
+		return ioutil.ReadAll(os.Stdin)
 
 	case strings.Index(inputFile, "http://") == 0 || strings.Index(inputFile, "https://") == 0:
 		_, err := url.Parse(inputFile)
