@@ -50,8 +50,15 @@ func TestRoper_YML(t *testing.T) {
 
 // TestRoper_YMLFile load and test tests/test.yml
 func TestRoper_URL(t *testing.T) {
-	doIt("https://raw.githubusercontent.com/applariat/roper/master/labels.yaml", t)
+	doIt("https://raw.githubusercontent.com/applariat/roper/master/tests/test.yaml", t)
 }
+
+// TestRoper_YMLFile load and test tests/test.yml
+func TestRoper_STDIN(t *testing.T) {
+	// TODO:
+	//doIt("https://raw.githubusercontent.com/applariat/roper/master/tests/test.yaml", t)
+}
+
 
 func doIt(file string, t *testing.T) {
 
