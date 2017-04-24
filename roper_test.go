@@ -1,7 +1,7 @@
 package roper_test
 
 import (
-	"github.com/cdornsife/roper"
+	"github.com/applariat/roper"
 	"reflect"
 	"testing"
 )
