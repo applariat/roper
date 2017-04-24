@@ -1,9 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"github.com/applariat/roper"
 	"github.com/spf13/pflag"
-	"fmt"
 )
 
 // TestStruct represents the data in the file
@@ -16,7 +16,6 @@ type TestStruct struct {
 		C string `json:"c"`
 	} `json:"three"`
 }
-
 
 func main() {
 
